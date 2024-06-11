@@ -1,0 +1,55 @@
+# Lesson 1: Requirements Gathering for Data Analytics
+
+## 1. Identify Business Needs
+- Understand the key analytics goals (e.g., customer segmentation, sales forecasting).
+- Identify stakeholders and gather their requirements through interviews and meetings.
+- Define key metrics and KPIs.
+
+## 2. Data Sources
+- List all potential data sources (e.g., CRM, ERP, web analytics, IoT devices).
+- Assess data formats and types (e.g., CSV, JSON, SQL databases).
+- Evaluate data quality and completeness.
+
+## 3. Data Infrastructure
+- Choose appropriate data storage solutions (e.g., AWS S3 for data lake, Redshift for data warehouse).
+- Plan the ETL/ELT architecture:
+  - Data ingestion: AWS Glue, Apache Nifi.
+  - Data transformation: Spark, AWS Lambda.
+  - Data loading: Redshift, BigQuery.
+
+## 4. Data Integration
+- Design data ingestion processes (e.g., using AWS Glue to ingest data from S3).
+- Define data transformation workflows (e.g., using Spark jobs for data cleaning).
+- Schedule data workflows using tools like Apache Airflow.
+
+## 5. Data Governance
+- Implement data validation and quality checks (e.g., using Great Expectations).
+- Define data access policies and permissions (e.g., using AWS IAM roles).
+- Ensure compliance with data regulations (e.g., GDPR, CCPA).
+
+## 6. Data Analytics Tools
+- Select analytics and visualization tools (e.g., Tableau for dashboards, Jupyter Notebooks for exploratory analysis).
+- Set up and integrate tools with data storage solutions.
+- Provide training and support for end-users.
+
+## Example Code Snippet
+```python
+# Example Spark job for data transformation
+from pyspark.sql import SparkSession
+
+spark = SparkSession.builder.appName("DataTransformation").getOrCreate()
+
+# Load data from S3
+df = spark.read.csv("s3://bucket-name/data.csv")
+
+# Perform data transformations
+df_cleaned = df.dropna().filter(df['value'] > 0)
+
+# Save transformed data to Redshift
+df_cleaned.write \
+    .format("jdbc") \
+    .option("url", "jdbc:redshift://redshift-cluster-url:5439/database") \
+    .option("dbtable", "cleaned_data") \
+    .option("user", "username") \
+    .option("password", "password") \
+    .save()
