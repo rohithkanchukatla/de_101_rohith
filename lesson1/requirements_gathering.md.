@@ -32,11 +32,10 @@
 - Set up and integrate tools with data storage solutions.
 - Provide training and support for end-users.
 
-## Example Code Snippet
-```python
+## Example Code Snippet using python
 # Example Spark job for data transformation
-from pyspark.sql import SparkSession
 
+from pyspark.sql import SparkSession
 spark = SparkSession.builder.appName("DataTransformation").getOrCreate()
 
 # Load data from S3
