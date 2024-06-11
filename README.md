@@ -1,4 +1,4 @@
-** startdataengineering de_101 email course by Joseph Machado
+
 **Overview**
 Welcome to my repository for the DE 101 email course by Joseph Machado! This repository contains my notes, assignments, and projects as I progress through the course. The goal of this course is to provide a comprehensive introduction to data engineering, covering fundamental concepts, tools, and techniques essential for a career in data engineering.
 
